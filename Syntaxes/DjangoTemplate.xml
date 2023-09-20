@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="djangotemplate">
+    <meta>
+        <name>Django Template</name>
+        <type>markup</type>
+        <preferred-file-extension>html</preferred-file-extension>
+        <parent>html</parent>
+    </meta>
+
+    <detectors>
+        <match-content priority="0.7">\{\%\s*[a-zA-Z]</match-content>
+    </detectors>
+
+    <tree-sitter>
+        <highlights />
+        <symbols />
+        <injections />
+        <folds />
+    </tree-sitter>
+</syntax>

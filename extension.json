@@ -1,0 +1,184 @@
+{
+    "identifier": "net.danwatson.Django",
+    "name": "Django",
+    "organization": "Dan Watson",
+    "description": "Syntax support for Django template files, tasks for running Django management commands, commands for migrations, formatting SQL files, and more!",
+    "version": "1.0",
+    "categories": ["commands", "formatters", "languages", "completions", "tasks"],
+
+    "main": "main.js",
+
+    "entitlements": {
+        "process": true
+    },
+
+    "activationEvents": ["onWorkspaceContains:manage.py"],
+
+    "commands": {
+        "extensions": [
+            {
+                "title": "Migrate",
+                "command": "django.migrate"
+            },
+            {
+                "title": "Make Migrations",
+                "command": "django.makeMigrations"
+            },
+            {
+                "title": "Initialize Migrations",
+                "command": "django.initMigrations"
+            }
+        ],
+        "editor": [
+            {
+                "title": "Format SQL",
+                "command": "django.formatSQL",
+                "when": "editorHasFocus",
+                "filters": {
+                    "syntaxes": ["sql"]
+                }
+            }
+        ]
+    },
+
+    "debugAdapters": {
+        "djangodebug": {
+            "name": "Django",
+            "image": "django"
+        }
+    },
+
+    "taskTemplates": {
+        "manage": {
+            "name": "Django Command",
+            "description": "Runs a Django management command.",
+            "actions": ["run"],
+            "tasks": {
+                "run": {
+                    "resolve": "django",
+                    "data": { "type": "manage" }
+                }
+            },
+            "config": [
+                {
+                    "key": "manage.command",
+                    "title": "Command",
+                    "type": "enum",
+                    "values": [
+                        "check",
+                        "clearsessions",
+                        "collectstatic",
+                        "compilemessages",
+                        "createcachetable",
+                        "diffsettings",
+                        "dumpdata",
+                        "flush",
+                        "inspectdb",
+                        "loaddata",
+                        "makemessages",
+                        "makemigrations",
+                        "migrate",
+                        "optimizemigration",
+                        "sendtestemail",
+                        "showmigrations",
+                        "sqlflush",
+                        "sqlmigrate",
+                        "sqlsequencereset",
+                        "squashmigrations",
+                        "startapp",
+                        "test"
+                    ],
+                    "allowCustom": true,
+                    "placeholder": "e.g. migrate"
+                },
+                {
+                    "key": "manage.args",
+                    "title": "Extra Arguments",
+                    "type": "stringArray"
+                }
+            ]
+        },
+        "runserver": {
+            "name": "Django Server",
+            "description": "Runs the Django development webserver.",
+            "actions": ["run"],
+            "tasks": {
+                "run": {
+                    "resolve": "django",
+                    "data": { "type": "runserver" },
+                    "persistent": true
+                }
+            },
+            "config": [
+                {
+                    "key": "runserver.bind",
+                    "title": "Bind",
+                    "type": "string",
+                    "placeholder": "127.0.0.1:8000"
+                },
+                {
+                    "key": "runserver.reload",
+                    "title": "Automatically reload when changes are detected",
+                    "type": "boolean",
+                    "default": true
+                },
+                {
+                    "key": "runserver.static",
+                    "title": "Serve static files at STATIC_URL",
+                    "type": "boolean",
+                    "default": true
+                },
+                {
+                    "key": "runserver.threads",
+                    "title": "Use threads",
+                    "type": "boolean",
+                    "default": true
+                }
+            ]
+        },
+        "debug": {
+            "name": "Django Server (Debug)",
+            "description": "Runs the Django development webserver in the debugger.",
+            "tasks": {
+                "run": {
+                    "resolve": "django",
+                    "data": { "type": "debug" },
+                    "persistent": true
+                }
+            },
+            "config": [
+                {
+                    "key": "runserver.bind",
+                    "title": "Bind",
+                    "type": "string",
+                    "placeholder": "127.0.0.1:8000"
+                },
+                {
+                    "title": "Debugger Options",
+                    "description": "",
+                    "type": "section",
+                    "children": [
+                        {
+                            "key": "debug.templates.django",
+                            "title": "Debug Django Templates",
+                            "description": "Whether debugging should be enabled within Django templates.",
+                            "type": "boolean"
+                        },
+                        {
+                            "key": "debug.templates.jinja",
+                            "title": "Debug Jinja Templates",
+                            "description": "Whether debugging should be enabled within Jinja templates.",
+                            "type": "boolean"
+                        },
+                        {
+                            "key": "debug.external",
+                            "title": "Debug External Modules",
+                            "description": "Whether debugging should be enabled for code outside of the project directory (such as external modules and the standard library).",
+                            "type": "boolean"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

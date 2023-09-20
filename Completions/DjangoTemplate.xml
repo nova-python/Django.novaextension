@@ -1,0 +1,289 @@
+<completions>
+    <provider name="builtins.templatetags">
+        <syntax>djangotemplate</syntax>
+        <expression>(?&lt;=\{\% )[^\s\%]*</expression>
+        <set>django.templatetags</set>
+    </provider>
+
+    <provider name="builtins.filters">
+        <syntax>djangotemplate</syntax>
+        <expression>(?&lt;=[a-zA-Z0-9"']\|)[^\s\%\}]*</expression>
+        <set>django.filters</set>
+        <trigger>|</trigger>
+    </provider>
+
+    <set name="django.templatetags" symbol="keyword">
+        <completion string="autoescape">
+            <behavior suffix="\s*\}">
+                <append> $[on|off] %}$[body]{% endautoescape %</append>
+            </behavior>
+            <behavior suffix="\s*($|\b)">
+                <append> $[on|off] %}$[body]{% endautoescape %}</append>
+            </behavior>
+        </completion>
+        <completion string="block">
+            <behavior suffix="\s*\}">
+                <append> $[name] %}$[body]{% endblock %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[name] %}$[body]{% endblock %}</append>
+            </behavior>
+        </completion>
+        <completion string="comment">
+            <behavior suffix="\s*\}">
+                <append> %}$[]{% endcomment %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> %}$[]{% endcomment %}</append>
+            </behavior>
+        </completion>
+        <completion string="csrf_token">
+            <behavior suffix="\s*\}">
+                <append> %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> %}</append>
+            </behavior>
+        </completion>
+        <completion string="cycle">
+            <behavior suffix="\s*\}">
+                <append> $[values] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[values] %}</append>
+            </behavior>
+        </completion>
+        <completion string="debug">
+        </completion>
+        <completion string="extends">
+            <behavior suffix="\s*\}">
+                <append> $[base] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[base] %}</append>
+            </behavior>
+        </completion>
+        <completion string="filter">
+            <behavior suffix="\s*\}">
+                <append> $[filters] %}$[body]{% endfilter %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[filters] %}$[body]{% endfilter %}</append>
+            </behavior>
+        </completion>
+        <completion string="firstof">
+            <behavior suffix="\s*\}">
+                <append> $[vars] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[vars] %}</append>
+            </behavior>
+        </completion>
+        <completion string="for">
+            <behavior suffix="\s*\}">
+                <append> $[var] in $[list] %}$[body]{% endfor %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[var] in $[list] %}$[body]{% endfor %}</append>
+            </behavior>
+        </completion>
+        <completion string="if">
+            <behavior suffix="\s*\}">
+                <append> $[expr] %}$[body]{% endif %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[expr] %}$[body]{% endif %}</append>
+            </behavior>
+        </completion>
+        <completion string="ifequal">
+            <behavior suffix="\s*\}" deprecated="true">
+                <append> $[expr1] $[expr2] %}$[body]{% endifequal %</append>
+            </behavior>
+            <behavior suffix="\s*$" deprecated="true">
+                <append> $[expr1] $[expr2] %}$[body]{% endifequal %}</append>
+            </behavior>
+        </completion>
+        <completion string="ifnotequal">
+            <behavior suffix="\s*\}" deprecated="true">
+                <append> $[expr1] $[expr2] %}$[body]{% endifnotequal %</append>
+            </behavior>
+            <behavior suffix="\s*$" deprecated="true">
+                <append> $[expr1] $[expr2] %}$[body]{% endifnotequal %}</append>
+            </behavior>
+        </completion>
+        <completion string="ifchanged">
+            <behavior suffix="\s*\}">
+                <append> %}$[]{% endifchanged %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> %}$[]{% endifchanged %}</append>
+            </behavior>
+        </completion>
+        <completion string="ifchanged">
+            <behavior suffix="\s*\}">
+                <append> $[vars] %}$[body]{% endifchanged %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[vars] %}$[body]{% endifchanged %}</append>
+            </behavior>
+        </completion>
+        <completion string="include">
+            <behavior suffix="\s*\}">
+                <append> $[template] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[template] %}</append>
+            </behavior>
+        </completion>
+        <completion string="load">
+            <behavior suffix="\s*\}">
+                <append> $[library] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[library] %}</append>
+            </behavior>
+        </completion>
+        <completion string="lorem" />
+        <completion string="lorem">
+            <behavior suffix="\s*\}">
+                <append> $[count] $[b|p|w] $[random] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[count] $[b|p|w] $[random] %}</append>
+            </behavior>
+        </completion>
+        <completion string="now">
+            <behavior suffix="\s*\}">
+                <append> $[fmt] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[fmt] %}</append>
+            </behavior>
+        </completion>
+        <completion string="regroup">
+            <behavior suffix="\s*\}">
+                <append> $[list] by $[grouper] as $[result] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[list] by $[grouper] as $[result] %}</append>
+            </behavior>
+        </completion>
+        <completion string="resetcycle" />
+        <completion string="resetcycle">
+            <behavior suffix="\s*\}">
+                <append> $[cycle] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[cycle] %}</append>
+            </behavior>
+        </completion>
+        <completion string="spaceless">
+            <behavior suffix="\s*\}">
+                <append> %}$[]{% endspaceless %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> %}$[]{% endspaceless %}</append>
+            </behavior>
+        </completion>
+        <completion string="templatetag">
+            <behavior suffix="\s*\}">
+                <append> $[arg] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[arg] %}</append>
+            </behavior>
+        </completion>
+        <completion string="url">
+            <behavior suffix="\s*\}">
+                <append> $[name] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[name] %}</append>
+            </behavior>
+        </completion>
+        <completion string="verbatim">
+            <behavior suffix="\s*\}">
+                <append> %}$[]{% endverbatim %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> %}$[]{% endverbatim %}</append>
+            </behavior>
+        </completion>
+        <completion string="widthratio">
+            <behavior suffix="\s*\}">
+                <append> $[value] $[max] $[min] %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[value] $[max] $[min] %}</append>
+            </behavior>
+        </completion>
+        <completion string="with">
+            <behavior suffix="\s*\}">
+                <append> $[var]=$[expr] %}$[body]{% endwith %</append>
+            </behavior>
+            <behavior suffix="\s*$">
+                <append> $[var]=$[expr] %}$[body]{% endwith %}</append>
+            </behavior>
+        </completion>
+    </set>
+
+    <set name="django.filters" symbol="keyword">
+        <completion string="add" />
+        <completion string="addslashes" />
+        <completion string="capfirst" />
+        <completion string="center" />
+        <completion string="cut" />
+        <completion string="date" />
+        <completion string="default" />
+        <completion string="default_if_none" />
+        <completion string="dictsort" />
+        <completion string="dictsortreversed" />
+        <completion string="divisibleby" />
+        <completion string="escape" />
+        <completion string="escapejs" />
+        <completion string="filesizeformat" />
+        <completion string="first" />
+        <completion string="floatformat" />
+        <completion string="force_escape" />
+        <completion string="get_digit" />
+        <completion string="iriencode" />
+        <completion string="join" />
+        <completion string="json_script" />
+        <completion string="last" />
+        <completion string="length" />
+        <completion string="length_is" />
+        <completion string="linebreaks" />
+        <completion string="linebreaksbr" />
+        <completion string="linenumbers" />
+        <completion string="ljust" />
+        <completion string="lower" />
+        <completion string="make_list" />
+        <completion string="phone2numeric" />
+        <completion string="pluralize" />
+        <completion string="pprint" />
+        <completion string="random" />
+        <completion string="rjust" />
+        <completion string="safe" />
+        <completion string="safeseq" />
+        <completion string="slice" />
+        <completion string="slugify" />
+        <completion string="stringformat" />
+        <completion string="striptags" />
+        <completion string="time" />
+        <completion string="timesince" />
+        <completion string="timeuntil" />
+        <completion string="title" />
+        <completion string="truncatechars" />
+        <completion string="truncatechars_html" />
+        <completion string="truncatewords" />
+        <completion string="truncatewords_html" />
+        <completion string="unordered_list" />
+        <completion string="upper" />
+        <completion string="urlencode" />
+        <completion string="urlize" />
+        <completion string="urlizetrunc" />
+        <completion string="wordcount" />
+        <completion string="wordwrap" />
+        <completion string="yesno" />
+    </set>
+</completions>
