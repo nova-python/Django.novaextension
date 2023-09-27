@@ -5,6 +5,8 @@
     "description": "Syntax support for Django template files, tasks for running Django management commands, commands for migrations, formatting SQL files, and more!",
     "version": "1.0",
     "categories": ["commands", "formatters", "languages", "completions", "tasks"],
+    "repository": "https://github.com/nova-python/Django.novaextension",
+    "bugs": "https://github.com/nova-python/Django.novaextension/issues",
 
     "main": "main.js",
 
